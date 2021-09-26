@@ -13,9 +13,29 @@
         <label>/div/label</label>
         <textarea>/div/textarea</textarea>
     </div>
-    <form>
-        <input placeholder="/form/input-placeholder">
+    <form method="GET">
+        <input placeholder="/form-GET/input-placeholder">
         <button id="divbutton">/form/button</button>
+    </form>
+    
+    <form method="POST" oninput="outp1.value=inp1.value+inp1.value">
+        <input type="number" placeholder="/form-POST/input-placeholder" name="inp1">
+        <output name="outp1" >/form/output</output>
+    </form>
+
+    <form method="POST" oninput="outp2.value=inp2.value">
+        <input type="button" value="/form-POST/input-placeholder" name="inp2" id="inp2">
+        <script>
+            const x = document.querySelector("#inp2");
+            x.addEventListener("click",(e)=>{
+                if(parseInt(e.target.value)){
+                    e.target.value=parseInt(e.target.value)+1;
+                }else{
+                    e.target.value=1
+                }
+            })
+        </script>
+        <output name="outp2" for="inp2">/form/output</output>
     </form>
 
     <script src="index.js"></script>
